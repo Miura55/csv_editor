@@ -14,12 +14,12 @@ with open("a.csv", "r", encoding=enc) as f:
         lis = row[0].split("\t")
         keywords.append(lis[1])
 
-for word in keywords:
+for num, word in enumerate(keywords):
     URL = "https://labs.goo.ne.jp/api/textpair"
     payload = {"app_id":"240d3816ea7bdecfdc441f92acb20aba0a2d0651317de443ca10d16944222079",
-                "text1":keywords[0],
+                "text1":word[0],
                 "text2":word
             }
     res = requests.post(URL, headers={"Content-Type":"application/json"},
                         data=json.dumps(payload))
-    print(res.text)
+    res = json.loads(res.text)

@@ -5,7 +5,6 @@ with open("a.csv", "rb") as f:
     res = chardet.detect(f.read())
     enc = res["encoding"]
 
-rank = {}
 with open("a.csv", "r", encoding=enc) as f:
     reader = csv.reader(f)
     header = next(reader)

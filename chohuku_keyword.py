@@ -35,4 +35,6 @@ for data in csv_list[1:]:
             else:
                 keywords[_keyword] += 1
 
-print(keywords)
+for k, v in sorted(keywords.items(), key=lambda x: x[1]):
+    print(str(k) + ": " + str(v))
+    
